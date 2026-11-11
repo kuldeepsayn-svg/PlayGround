@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#101a17" />
+  <title>STONE WORLD: REBIRTH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="world"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">✦</div><div><strong>STONE WORLD</strong><span>RE:BIRTH&nbsp; · &nbsp;YEAR 3700</span></div></div>
+      <div class="top-center"><span class="location-dot"></span><span id="region-label">MOSSFALL GROVE</span><i>—</i><span id="clock">DAY 01 · 08:00</span></div>
+      <div class="top-actions"><button class="icon-button" id="save-btn" title="Save game">↥</button><button class="icon-button" id="sound-btn" title="Sound">♫</button><button class="icon-button" id="pause-btn" title="Pause">Ⅱ</button></div>
+    </header>
+    <section class="survival-panel" id="survival-panel">
+      <div class="player-chip"><div class="avatar">A</div><div><b>AKI</b><span>THE AWAKENED</span></div><div class="level">LVL <b id="level">01</b></div></div>
+      <div class="meters">
+        <div class="meter"><div class="meter-label"><span>♡ &nbsp;VITALITY</span><b id="health-value">100</b></div><div class="bar"><i id="health-bar" class="health-fill"></i></div></div>
+        <div class="meter"><div class="meter-label"><span>◉ &nbsp;HUNGER</span><b id="hunger-value">84</b></div><div class="bar"><i id="hunger-bar" class="hunger-fill"></i></div></div>
+        <div class="meter"><div class="meter-label"><span>◌ &nbsp;THIRST</span><b id="thirst-value">72</b></div><div class="bar"><i id="thirst-bar" class="thirst-fill"></i></div></div>
+      </div>
+      <div class="age-card"><span>ERA</span><strong id="age-label">STONE AGE</strong><small><i></i> SCIENCE <b id="science-value">0 / 30</b></small></div>
+    </section>
+    <div class="quest-card" id="quest-card"><div class="quest-icon">✧</div><div><span>FIELD NOTES · 01</span><b id="quest-text">Gather the first materials</b><small id="quest-sub">Collect 3 wood and 2 stone to begin.</small></div><div class="quest-progress"><b id="quest-progress">0%</b><span>COMPLETE</span></div></div>
+    <div class="interaction-prompt" id="interaction-prompt"><kbd>E</kbd><span>Gather <b id="target-name">wood</b></span></div>
+    <div class="toast" id="toast"></div>
+    <div class="resource-strip" id="resource-strip"></div>
+    <nav class="bottom-nav" id="bottom-nav">
+      <button class="nav-btn active" data-panel="bag"><span>▤</span><small>BAG</small><kbd>I</kbd></button>
+      <button class="nav-btn" data-panel="craft"><span>⌘</span><small>CRAFT</small><kbd>C</kbd></button>
+      <button class="nav-btn" data-panel="build"><span>⌂</span><small>BUILD</small><kbd>B</kbd></button>
+      <button class="nav-btn" data-panel="research"><span>✧</span><small>RESEARCH</small><kbd>R</kbd></button>
+      <button class="nav-btn" id="map-btn"><span>⌖</span><small>MAP</small><kbd>M</kbd></button>
+    </nav>
+    <div class="controls-hint" id="controls-hint"><span>WASD</span> MOVE <i>·</i> <span>DRAG</span> LOOK <i>·</i> <span>E</span> GATHER</div>
+    <div class="mobile-controls" id="mobile-controls"><div class="joystick" id="joystick"><div class="joy-knob" id="joy-knob"></div></div><div class="look-hint">DRAG TO LOOK</div><button id="mobile-gather">E</button></div>
+    <section class="drawer hidden" id="drawer"><div class="drawer-head"><div><span class="eyebrow" id="drawer-eyebrow">SURVIVOR'S KIT</span><h2 id="drawer-title">Inventory</h2></div><button class="close-btn" id="close-drawer">×</button></div><div class="drawer-content" id="drawer-content"></div></section>
+    <section class="modal-screen" id="main-menu"><div class="menu-backdrop"></div><div class="menu-content"><div class="menu-kicker"><span></span> A WORLD RECLAIMED BY NATURE</div><h1>STONE<br><em>WORLD</em></h1><div class="title-sub">: REBIRTH</div><p>3,700 years after the fall, the world is yours<br>to rediscover. Begin again—with science.</p><div class="menu-buttons"><button class="primary-btn" id="play-btn"><span>▶</span> WAKE UP</button><button class="secondary-btn" id="continue-btn">CONTINUE JOURNEY <span>↗</span></button></div><div class="menu-footer"><span>AN ORIGINAL SURVIVAL ADVENTURE</span><span>◈ &nbsp;VER 0.1.0</span></div></div><div class="menu-side-note">MOSSFALL GROVE &nbsp; / &nbsp; 37° 12′ N</div></section>
+    <section class="modal-screen pause-screen hidden" id="pause-screen"><div class="pause-card"><span class="eyebrow">TAKE A BREATH</span><h2>Journey paused</h2><p>The wilds will wait for you.</p><button class="primary-btn" id="resume-btn">BACK TO THE WILD <span>→</span></button><button class="secondary-btn" id="pause-save">SAVE JOURNEY</button></div></section>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
